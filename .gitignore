@@ -1,5 +1,4 @@
 .env
 .env.local
 .env.production
-node_modulesnode_modules
 node_modules
