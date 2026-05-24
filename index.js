@@ -36,7 +36,7 @@ app.post('/contact', async (req, res) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Kamal Portfolio <onboarding@resend.dev>',
+        from: 'Kamal Portfolio <kamaldeenmohd13@gmail.com>',
         to: process.env.TO_EMAIL,
         reply_to: email,
         subject: `[Portfolio] ${service || 'General'} inquiry from ${name}`,
