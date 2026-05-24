@@ -16,7 +16,7 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
-  secure: false, 
+  secure: false,
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS,
@@ -25,6 +25,7 @@ const transporter = nodemailer.createTransport({
     rejectUnauthorized: false,
   },
 });
+
 app.post("/contact", async (req, res) => {
   const { name, email, service, message } = req.body;
 
@@ -33,11 +34,11 @@ app.post("/contact", async (req, res) => {
   }
 
   try {
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
-      replyTo: email, 
-      subject: `New Inquiry — ${service || "General"} from ${name}`,
+ await transporter.sendMail({
+  from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+  to: "kamaldeenmohd13@gmail.com",
+  replyTo: email,
+  subject: `New Inquiry — ${service || "General"} from ${name}`,
       html: `
         <div style="font-family:monospace;max-width:600px;margin:0 auto;padding:32px;background:#0a0a08;color:#f0ede6;border:1px solid #2a2a28;">
           <h1 style="color:#e8ff47;font-size:28px;margin-bottom:4px;letter-spacing:2px;">NEW MESSAGE</h1>
